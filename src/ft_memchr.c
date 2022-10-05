@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memcpy.c                                        :+:    :+:            */
+/*   ft_memchr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 12:38:33 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/05 17:18:35 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/05 13:32:02 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/05 13:42:34 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <string.h>
+
 #include "../include/libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	int		i;
 	char	*temp;
-	char	*temp_src;
 
-	temp = (char *) dst;
-	temp_src = (char *)src;
 	i = 0;
-	while (--n)
+	temp = (char *) s;
+	if (ft_strlen(temp) > (int) n)
+		n = ft_strlen(temp);
+	while (n--)
 	{
-		temp[i] = temp_src[i];
+		if (temp[i] == c)
+			return (&temp[i]);
 		i++;
 	}
-	return (dst);
+	return (0);
 }

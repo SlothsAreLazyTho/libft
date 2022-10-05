@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_memcpy.c                                        :+:    :+:            */
+/*   ft_memmove.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 12:38:33 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/05 17:18:35 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/05 13:46:54 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/05 17:19:45 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
 	int		i;
-	char	*temp;
-	char	*temp_src;
 
-	temp = (char *) dst;
-	temp_src = (char *)src;
 	i = 0;
-	while (--n)
-	{
-		temp[i] = temp_src[i];
-		i++;
-	}
+	while (len--)
+		ft_memcpy((char *) dst[i], src[i], ++i);
 	return (dst);
 }
