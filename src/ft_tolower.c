@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_tolower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 14:31:45 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/05 11:12:37 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/05 11:51:15 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/05 11:51:32 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "../include/libft.h"
 
-//todo Makeup with memcpy & rewrite memcpy..
-size_t strlcpy(char *dst, char *src, size_t size)
+int	ft_tolower(int c)
 {
-	int i;
-
-	i = 0;
-	while(src[i] != '\0' && i < size)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	return (i);
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }

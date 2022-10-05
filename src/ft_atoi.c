@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strlcpy.c                                       :+:    :+:            */
+/*   ft_atoi.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/04 14:31:45 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/05 11:12:37 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/05 11:24:04 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/05 11:38:26 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-
 #include "../include/libft.h"
 
-//todo Makeup with memcpy & rewrite memcpy..
-size_t strlcpy(char *dst, char *src, size_t size)
+int	ft_atoi(const char *str)
 {
-	int i;
+	int	i;
+	int	multi;
+	int	answer;
 
 	i = 0;
-	while(src[i] != '\0' && i < size)
-	{
-		dst[i] = src[i];
+	multi = 1;
+	answer = 0;
+	while (str[i] >= 0 && str[i] <= 32)
 		i++;
-	}
-	return (i);
+	if (str[i] == '-')
+		multi = -multi;
+	i++;
+	while (str[i] >= '0' && str[i] <= '9')
+		answer = (answer * 10) + (str[i++] - '0');
+	return (answer * multi);
 }

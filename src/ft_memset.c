@@ -6,11 +6,10 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:08:16 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/04 12:35:14 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/05 11:45:47 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include "../include/libft.h"
 
 void	*ft_memset(void *b, int c, size_t len)
