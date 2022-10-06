@@ -1,5 +1,0 @@
-strchr
-strrchr
-strncmp
-strlcat
-strnstr
