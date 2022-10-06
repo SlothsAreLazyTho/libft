@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isalpha.c                                       :+:    :+:            */
+/*   ft_isprint.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/03 16:35:08 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/04 12:36:44 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/03 17:04:50 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "./include/libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isprint(int c)
 {
-	if ((c >= 'A' && c <= 'Z')
-		|| (c >= 'a' && c <= 'z'))
+	if (c >= 32 && c <= 126)
 		return (1);
 	return (0);
 }

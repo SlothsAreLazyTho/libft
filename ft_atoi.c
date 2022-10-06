@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_tolower.c                                       :+:    :+:            */
+/*   ft_atoi.c                                          :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 11:51:15 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/05 11:51:32 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/05 11:24:04 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "./include/libft.h"
 
-int	ft_tolower(int c)
+int	ft_atoi(const char *str)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	int	i;
+	int	multi;
+	int	answer;
+
+	i = 0;
+	multi = 1;
+	answer = 0;
+	while (str[i] >= 0 && str[i] <= 32)
+		i++;
+	if (str[i] == '-')
+		multi = -multi;
+	i++;
+	while (str[i] >= '0' && str[i] <= '9')
+		answer = (answer * 10) + (str[i++] - '0');
+	return (answer * multi);
 }

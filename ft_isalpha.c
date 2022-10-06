@@ -1,18 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_bzero.c                                         :+:    :+:            */
+/*   ft_isalpha.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 13:43:11 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/05 13:43:12 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/03 16:35:08 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "./include/libft.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_isalpha(int c)
 {
-	ft_memset(s, 0, n);
+	if ((c >= 'A' && c <= 'Z')
+		|| (c >= 'a' && c <= 'z'))
+		return (1);
+	return (0);
 }

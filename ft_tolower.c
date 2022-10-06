@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_toupper.c                                       :+:    :+:            */
+/*   ft_tolower.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 11:46:24 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/05 11:50:46 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/05 11:51:15 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "./include/libft.h"
 
-int	ft_toupper(int c)
+int	ft_tolower(int c)
 {
-	if (c >= 'a' && c <= 'z')
-		c -= 32;
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
 	return (c);
 }

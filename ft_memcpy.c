@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isdigit.c                                       :+:    :+:            */
+/*   ft_memcpy.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/03 16:51:23 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/04 12:37:18 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/04 12:38:33 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include "./include/libft.h"
 
-int	ft_isdigit(int c)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
+	int			i;
+	char		*temp;
+	const char	*temp_src;
+
+	temp = (char *) dst;
+	temp_src = (char *)src;
+	i = 0;
+	while (--n)
+	{
+		temp[i] = temp_src[i];
+		i++;
+	}
+	return (dst);
 }

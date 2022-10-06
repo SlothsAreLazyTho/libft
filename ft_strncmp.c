@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_atoi.c                                          :+:    :+:            */
+/*   ft_strncmp.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 11:24:04 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/05 11:38:26 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/06 11:37:19 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/libft.h"
+#include <stdio.h>
 
-int	ft_atoi(const char *str)
+#include "./include/libft.h"
+
+int	strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-	int	multi;
-	int	answer;
-
-	i = 0;
-	multi = 1;
-	answer = 0;
-	while (str[i] >= 0 && str[i] <= 32)
-		i++;
-	if (str[i] == '-')
-		multi = -multi;
-	i++;
-	while (str[i] >= '0' && str[i] <= '9')
-		answer = (answer * 10) + (str[i++] - '0');
-	return (answer * multi);
+	while (*s1 && *s2 && n--)
+		if (*s1 != *s2)
+			return (*s1 - *s2);
+	return (0);
 }
