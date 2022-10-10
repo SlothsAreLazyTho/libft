@@ -1,25 +1,54 @@
-CC := "gcc"
-FLAGS := "-Wall -Wextra -Werror"
+NAME = libft.a
 
-SRCS = ${wildcard *.c}
-OBJS = ${SRCS:.c=.o}
-NAME = "libft"
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+AR = ar rcs
+RM = rm -f
 
-.c.o:
-	${CC} ${C_FLAGS} -c $< -o ${<:.c=.o}
+FILES = ft_memset \
+		ft_bzero \
+		ft_memcpy \
+		ft_memcpy \
+		ft_memmove \
+		ft_memchr \
+		ft_memcmp \
+		ft_strlen \
+		ft_strlcpy \
+		ft_strlcat \
+		ft_strchr \
+		ft_strnstr \
+		ft_strncmp \
+		ft_isalpha \
+		ft_isdigit \
+		ft_isalnum \
+		ft_isascii \
+		ft_isprint \
+		ft_toupper \
+		ft_tolower \
+		ft_strrchr \
+		ft_atoi
+
+SRCS_DIR = ./
+SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
+
+OBJS_DIR = ./
+OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
+
+
+.c.o: $(SRCS)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(NAME): $(OBJS)
+	$(AR) $@ $^
 
 all: $(NAME)
 
-${NAME}:	${OBJS}
-			${CC} -o ${NAME} ${OBJS}
-
 clean:
-	find "." -name "*.o" -print -delete
+	@$(RM) $(OBJS) $(OBJS_B)
 
-fclean:
-	@echo ok
+fclean: clean
+	$(RM) $(NAME)
 
-re:
-	@echo ok
+re: clean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: bonus all clean fclean re

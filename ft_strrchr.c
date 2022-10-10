@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strchr.c                                        :+:    :+:            */
+/*   ft_strrchr.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 13:32:02 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/10 15:46:53 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/10 16:00:07 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/10 16:21:00 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,30 @@
 
 #include "./include/libft.h"
 
-char	*ft_strchr(const char *s, int c)
+char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
+	int	j;
 
 	i = 0;
+	j = 0;
 	while (s[i])
 	{
 		if (s[i] == c)
-			return ((char *)&s[i]);
+			j = i;
 		i++;
 	}
 	if (c == '\0')
 		return ((char *) &s[i]);
+	if (j > 0)
+		return ((char *) &s[j]);
 	return (NULL);
 }
+
+// int main()
+// {
+// 	char a[50] = "Bahahahahahaha";
+// 	printf("Result: %s\tExpected: %s",
+// 		ft_strrchr(a, 'a'), 
+// 		strrchr(a,    'a'));
+// }

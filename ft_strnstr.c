@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 14:39:20 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/10 13:12:41 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/10 17:34:11 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,55 +15,43 @@
 
 #include "./include/libft.h"
 
-int	ft_strlen(char *str)
-{
-	int	c;
-
-	c = 0;
-	while (str[c] != '\0')
-		c++;
-	return (c);
-}
-
-// char	*ft_strnstr(char *str, char *to_find, int n)
-// {
-// 	int		c;
-// 	int		c1;
-// 	int		pos;
-// 	if (to_find[0] == '\0')
-// 		return (str);
-// 	c = 0;
-// 	while (n--)
-// 	{
-// 		if (str[c] == to_find[c1])
-// 		{
-// 			pos = c;
-// 			c1 = 0;
-// 			while (str[c] == to_find[c1] && to_find[c1] != '\0')
-// 			{			
-// 				c1++;
-// 				c++;
-// 				if (to_find[c1] == '\0')
-// 					return (&str[pos]);
-// 			}
-// 			c = pos;
-// 		}
-// 		c++;
-// 	}
-// 	return (0);
-// }
-
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	int	i;
+	int	j;
+	int	k;
 
 	i = 0;
+	k = ft_strlen(needle);
+	if (needle[i] == '\0')
+		return ((char *)haystack);
+	while (haystack[i])
+	{
+		//j = i;
+		// if(ft_strncmp(&haystack[j], needle, len) == 0)
+		// {
+		// 	//printf("Match: %s, Length: %zu\n", &haystack[i], len);
+		// 	return ((char *) &haystack[j]);
+		// }
+		j = 0;
+		while (haystack[i] == needle[j] && needle[i])
+		{
+			i++;
+			j++;
+			if (k == j)
+				return ((char *) &haystack[(i - j)]);
+		}
+		i++;
+	}
+	return (0);
 }
 
-int main(void)
+int main()
 {
-	char a[50] = "Hello this is a mesasge";
-
-	printf("%s\n", strnstr(a, "is", 30));
-	printf("%s\n", ft_strnstr(a, "is", 30));
+	char * big = "aaaaaaaaoaaaaaauaaaaaaoaaaaat";
+	char * little = "aout";
+	size_t max = 9;
+	char *s1 = strnstr(big, little, max);
+	char *s2 = ft_strnstr(big, little, max);
+	printf("%s\t%s", s1, s2);
 }

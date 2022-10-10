@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 12:10:26 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/10 16:33:47 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	dst_size = ft_strlen(dst);
 	while (*src != '\0' && dstsize--)
 		dst[++dst_size] = *src++;
-	dst[dst_size] = '\0';
+	// dst[dst_size] = '\0';
 	return (dst_size);
 }
