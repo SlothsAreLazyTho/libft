@@ -6,11 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/06 12:51:50 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/06 14:39:42 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
+#include <stddef.h>
 
 #ifndef LIBFT_H
 #define LIBFT_H
@@ -18,6 +18,7 @@
 int		ft_toupper(int c);
 int		ft_atoi(const char *str);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_memcmp(const void *s1, const void *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 void	*ft_strchr(const void *s, int c, size_t n);

@@ -22,5 +22,4 @@ fclean:
 re:
 	@echo ok
 
-
 .PHONY: all, clean, fclean, re

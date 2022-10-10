@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 12:38:33 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/06 14:32:01 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char		*temp;
 	const char	*temp_src;
 
-	temp = (char *) dst;
+	temp = (char *)dst;
 	temp_src = (char *)src;
 	i = 0;
 	while (--n)
