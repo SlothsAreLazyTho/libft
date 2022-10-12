@@ -6,12 +6,9 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 13:32:02 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/10 15:46:53 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/12 14:03:16 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <string.h>
-#include <stdio.h>
 
 #include "./include/libft.h"
 
