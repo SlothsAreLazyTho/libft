@@ -6,11 +6,13 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 16:58:50 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/06 12:52:52 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/13 15:07:09 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/libft.h"
+#include "libft.h"
+
+#include <stdio.h>
 
 int	ft_isascii(int c)
 {

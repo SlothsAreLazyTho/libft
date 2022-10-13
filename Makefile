@@ -29,7 +29,10 @@ FILES = ft_memset \
 		ft_calloc \
 		ft_atoi \
 		ft_strdup \
-		ft_itoa
+		ft_itoa \
+		ft_substr \
+		ft_strjoin \
+		ft_strtrim \
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))

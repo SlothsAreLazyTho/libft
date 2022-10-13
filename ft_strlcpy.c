@@ -6,11 +6,14 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 14:31:45 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/12 17:07:15 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/13 15:07:09 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/libft.h"
+#include "libft.h"
+
+#include <string.h>
+#include <stdio.h>
 
 size_t	ft_strlcpy(char *dst, char *src, size_t size)
 {
@@ -18,10 +21,10 @@ size_t	ft_strlcpy(char *dst, char *src, size_t size)
 	size_t	len;
 
 	i = 0;
-	len = ft_strlen(src);
+	len = strlen(src);
 	if (size == 0)
 		return (len);
-	while (src[i] && i < --size)
+	while (src[i] && --size)
 	{
 		dst[i] = src[i];
 		i++;

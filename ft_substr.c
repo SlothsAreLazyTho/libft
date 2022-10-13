@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strnstr.c                                       :+:    :+:            */
+/*   ft_substr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/06 14:39:20 by cbijman       #+#    #+#                 */
+/*   Created: 2022/10/13 11:33:23 by cbijman       #+#    #+#                 */
 /*   Updated: 2022/10/13 15:07:09 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
-{
-	int	i;
-	int	j;
-	int	k;
+#include <stdlib.h>
 
-	i = 0;
-	k = 0;
-	if (needle[i] == '\0' || len == 0)
-		return ((char *)haystack);
-	while (--len && haystack[i])
-	{
-		j = 0;
-		if (haystack[i] == needle[j] && len)
-		{
-			k = i;
-			while (haystack[i++] == needle[j++])
-				if (needle[j] == '\0')
-					return ((char *)&haystack[k]);
-			k = 0;
-		}
-		i++;
-	}
-	return (0);
+char	*ft_substr(const char *s, unsigned int start, size_t len)
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	i = start;
+	j = 0;
+	str = malloc((len + 1) * sizeof(char));
+	if (start >= len)
+		return (str);
+	if (str == NULL)
+		return (0);
+	ft_strlcpy(str, &((char *) s)[start], ++len);
+	return (str);
 }

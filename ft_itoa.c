@@ -6,11 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:11:48 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/12 19:56:05 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/13 15:07:09 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./include/libft.h"
+#include "libft.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -81,12 +81,12 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-int main()
-{
-	int		n = 25;
-	char	*a = ft_itoa(n);
+// int main()
+// {
+// 	int		n = 25;
+// 	char	*a = ft_itoa(n);
 
-	printf("Expected:\t%s\nResult:\t\t%s\n", "Nothing?", a);
-	for (int i = 0; i < 10; i++)
-		printf("%d ", (int) a[i]);
-}
+// 	printf("Expected:\t%s\nResult:\t\t%s\n", "Nothing?", a);
+// 	for (int i = 0; i < 10; i++)
+// 		printf("%d ", (int) a[i]);
+// }
