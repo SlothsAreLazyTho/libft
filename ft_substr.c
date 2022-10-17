@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 11:33:23 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/13 15:07:09 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/17 15:44:08 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	size_t	j;
 	char	*str;
 
+	if (s == NULL)
+		return (NULL);
 	i = start;
 	j = 0;
 	str = malloc((len + 1) * sizeof(char));

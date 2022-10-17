@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:11:48 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/13 15:07:09 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/17 15:47:50 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,13 @@ int	ft_countn(int n)
 
 	ni = n;
 	count = 1;
-	if(n < 0)
+	if (n == -2147483648)
+		return (11);
+	if (n < 0)
 	{
 		ni = -ni;
 		count++;
 	}
-	if(n == 0)
-		return (0);
 	while (ni >= 10)
 	{
 		ni /= 10;
@@ -51,20 +51,29 @@ int	ft_countn(int n)
 	return (count);
 }
 
+char	*validate_args(int n)
+{
+	if (n == -0)
+		return ("0");
+	if (n == -2147483648)
+		return ("-2147483648");
+	return ("0");
+}
+
 char	*ft_itoa(int n)
 {
 	int		len;
+	int		length_nb;
 	int		multi;
 	char	*str;
 
 	len = ft_countn(n);
-	str = (char *) malloc((len) * sizeof(char));
-	if (n == -0)
-		return (ft42_strcpy(str, "0"));
-	if (n == -2147483648)
-		return (ft42_strcpy(str, "-2147483648"));
-	if (str == 0)
-		return (0);
+	length_nb = len;
+	str = (char *) malloc((len + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	if (n == -2147483648 || n == -0)
+		return (ft42_strcpy(str, validate_args(n)));
 	if (n < 0)
 	{
 		multi = 1;
@@ -77,16 +86,6 @@ char	*ft_itoa(int n)
 	}
 	if (multi)
 		str[(len - 1)] = '-';
-	str[(strlen(str) + 1)] = '\0';
+	str[(length_nb)] = '\0';
 	return (str);
 }
-
-// int main()
-// {
-// 	int		n = 25;
-// 	char	*a = ft_itoa(n);
-
-// 	printf("Expected:\t%s\nResult:\t\t%s\n", "Nothing?", a);
-// 	for (int i = 0; i < 10; i++)
-// 		printf("%d ", (int) a[i]);
-// }
