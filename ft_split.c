@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 16:59:27 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/17 18:04:17 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/18 17:47:12 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	count_strings(const char *s, char divider)
 	return (j);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
 	int		i;
 	int		j;
@@ -42,11 +42,11 @@ char **ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	i = 0;
-	strs = malloc(count_strings(s, c) * sizeof(char *));
+	strs = (char **)malloc(count_strings(s, c) * sizeof(char *));
 	pos = 0;
 	if (strs == 0)
 		return (0);
-	while (s[i])
+	while (s[i++])
 	{
 		k = 0;
 		j = i;
@@ -55,19 +55,28 @@ char **ft_split(char const *s, char c)
 			k++;
 			i++;
 		}
-		strs[pos] = (char *)ft_calloc((k + 1), sizeof(char));
-		strlcpy(strs[pos++], &s[j], (k + 1));
-		i++;
+		if (k > 0)
+			strs[pos++] = ft_substr(&s[j], 0, (k));
 	}
 	return (strs);
 }
 
-int main()
-{
-	char *s1 		= "      split       this for   me  !       ";
-	char divider 	= ' ';
-	char **s 		= ft_split(s1, divider);
-	
-	for (int i = 0; i < count_strings(s1, divider); i++)
-		printf("%s\n", s[i]);
-}
+// int	main(void)
+// {
+// 	char	*s1;
+// 	char	divider;
+// 	char	**s	;
+// 	int		dividers;
+
+// 	s1 = "      split       this for   me  !       ";
+// 	divider = ' ';
+// 	s = ft_split(s1, divider);
+// 	dividers = count_strings(s1, divider);
+
+// 	for (int i = 0; i < dividers; i++)
+// 	{
+// 		for (int j = 0; j < strlen(s[i]) + 1; j++)
+// 			printf("%c (%d)", s[i][j], (int)s[i][j]);
+// 		printf("\n-----------------------------------------------------\n");
+// 	}
+// }

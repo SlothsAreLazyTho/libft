@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 11:33:23 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/17 15:44:08 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/18 16:46:38 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		return (NULL);
 	i = start;
 	j = 0;
-	str = malloc((len + 1) * sizeof(char));
-	if (start >= len)
-		return (str);
+	str = (char *)malloc((len + 1) * sizeof(char));
 	if (str == NULL)
 		return (0);
+	if (start >= len)
+		return (str);
 	ft_strlcpy(str, &((char *) s)[start], ++len);
 	return (str);
 }

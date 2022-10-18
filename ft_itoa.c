@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:11:48 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/17 15:47:50 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/18 16:52:39 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char	*ft42_strcpy(char *dst, char *src)
+static char	*ft_strcpy(char *dst, char *src)
 {
 	int	i;
 
@@ -51,13 +51,13 @@ int	ft_countn(int n)
 	return (count);
 }
 
-char	*validate_args(int n)
+char	*validate_args(char *str, int n)
 {
 	if (n == -0)
-		return ("0");
+		return (ft_strcpy(str, "0"));
 	if (n == -2147483648)
-		return ("-2147483648");
-	return ("0");
+		return (ft_strcpy(str, "-2147483648"));
+	return (NULL);
 }
 
 char	*ft_itoa(int n)
@@ -70,10 +70,8 @@ char	*ft_itoa(int n)
 	len = ft_countn(n);
 	length_nb = len;
 	str = (char *) malloc((len + 1) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	if (n == -2147483648 || n == -0)
-		return (ft42_strcpy(str, validate_args(n)));
+	if (n == -2147483648 || n == -0 || str == NULL)
+		return (validate_args(str, n));
 	if (n < 0)
 	{
 		multi = 1;
