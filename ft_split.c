@@ -6,16 +6,15 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 16:59:27 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/18 17:47:12 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/19 17:38:09 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 #include <stdlib.h>
-#include <stdio.h>
 
-int	count_strings(const char *s, char divider)
+int	count_strings(char *s, char divider)
 {
 	int	i;
 	int	j;
@@ -24,59 +23,70 @@ int	count_strings(const char *s, char divider)
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] == divider)
+		if (s[i] == divider && s[i] != '\0')
+		{
 			j++;
+			while (s[i] == divider)
+				i++;
+		}
 		i++;
 	}
 	return (j);
 }
 
-char	**ft_split(char const *s, char c)
+int	find_next_divider(char *s, char divider)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == divider && s[i])
+			return (i);
+		i++;
+	}
+	return (i);
+}
+
+int	ft_strlen_till_divider(char *s, char divider)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != divider && s[i])
+		i++;
+	return (i);
+}
+
+//Allocates (with malloc(3)) and returns an array
+//of strings obtained by splitting ’s’ using the
+//character ’c’ as a delimiter.  The array must end
+//with a NULL pointer.
+char	**ft_split(char *s, char c)
 {
 	int		i;
-	int		j;
 	int		k;
-	int		pos;
-	char	**strs;
+	int		l;
+	char	**split;
 
 	if (!s)
 		return (NULL);
 	i = 0;
-	strs = (char **)malloc(count_strings(s, c) * sizeof(char *));
-	pos = 0;
-	if (strs == 0)
-		return (0);
-	while (s[i++])
+	k = 0;
+	l = 0;
+	split = (char **) malloc(count_strings(s, c) * sizeof(char *));
+	if (!split)
+		return (NULL);
+	while (s[i])
 	{
-		k = 0;
-		j = i;
-		while (s[i] != c && s[i] != '\0')
+		while (find_next_divider(&s[i], c) > 0)
 		{
-			k++;
-			i++;
+			k = ft_strlen_till_divider(&s[i], c);
+			split[l++] = ft_substr(&s[i], 0, k);
+			i += k;
 		}
-		if (k > 0)
-			strs[pos++] = ft_substr(&s[j], 0, (k));
+		i++;
 	}
-	return (strs);
+	split[l] = NULL;
+	return (split);
 }
-
-// int	main(void)
-// {
-// 	char	*s1;
-// 	char	divider;
-// 	char	**s	;
-// 	int		dividers;
-
-// 	s1 = "      split       this for   me  !       ";
-// 	divider = ' ';
-// 	s = ft_split(s1, divider);
-// 	dividers = count_strings(s1, divider);
-
-// 	for (int i = 0; i < dividers; i++)
-// 	{
-// 		for (int j = 0; j < strlen(s[i]) + 1; j++)
-// 			printf("%c (%d)", s[i][j], (int)s[i][j]);
-// 		printf("\n-----------------------------------------------------\n");
-// 	}
-// }

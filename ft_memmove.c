@@ -6,30 +6,35 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 13:46:54 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/13 15:07:09 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/19 18:04:10 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdio.h>
-#include <string.h>
-
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		i;
-	char	*temp;
-	char	*temp_src;
+	size_t		i;
+	char		*temp;
+	char		*temp_src;
 
 	i = 0;
 	temp = (char *) dst;
 	temp_src = (char *) src;
+	if(!dst && !src)
+		return (NULL);
 	if (len == 0)
 		return (temp);
-	while (len--)
+	if (temp > temp_src)
+		while (len--)
+			temp[len] = temp_src[len];
+	else
 	{
-		temp[i] = temp_src[i];
-		i++;
+		while (i < len)
+		{
+			temp[i] = temp_src[i];
+			i++;
+		}
 	}
 	return (temp);
 }

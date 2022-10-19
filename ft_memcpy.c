@@ -6,12 +6,9 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 12:38:33 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/13 15:07:09 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/19 17:07:59 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
-#include <string.h>
 
 #include "libft.h"
 
@@ -20,6 +17,8 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	int			i;
 	char		*temp;
 
+	if (!dst && !src)
+		return (NULL);
 	temp = (char *)dst;
 	i = 0;
 	while (n--)
