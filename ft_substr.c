@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/13 11:33:23 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/20 21:12:41 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/21 15:11:49 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,30 +20,24 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 {
 	size_t	i;
 	size_t	str_len;
+	size_t	length;
 	char	*str;
 
-	i = 0;
-	str_len = strlen(s);
 	if (s == NULL)
 		return (NULL);
-	if (start > strlen(s))
-		return (strdup("\0"));
-	if ((str_len + start) < len)
-		str = (char *)ft_calloc((str_len + 1), sizeof(char));
+	if (len == 0)
+		return (ft_strdup("\0"));
+	if (start >= ft_strlen(s))
+		return (ft_strdup("\0"));
+	i = 0;
+	str_len = ft_strlen(&s[start]);
+	if ((str_len) < len)
+		length = str_len + 1;
 	else
-		str = (char *)ft_calloc((len + 1), sizeof(char));
+		length = len + 1;
+	str = (char *)ft_calloc(length, sizeof(char));
 	if (str == NULL)
 		return (0);
-	strlcpy(str, &s[start], (len + 1));
+	ft_strlcpy(str, &((char *)s)[start], length);
 	return (str);
-}
-
-int	main(void)
-{
-	char	*a = "hola";
-	char	*b = ft_substr(a, 0, 18446744073709551615);
-
-	printf("%s", b);
-	free(b);
-	system ("leaks a.out");
 }

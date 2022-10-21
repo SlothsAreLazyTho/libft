@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:11:48 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/18 16:52:39 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/21 15:10:43 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,62 +16,74 @@
 #include <stdlib.h>
 #include <string.h>
 
-static char	*ft_strcpy(char *dst, char *src)
+static void	ft_swap(char *a, char *b)
 {
-	int	i;
+	int	temp;	
 
-	i = 0;
-	while (src[i])
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	return (dst);
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
 
-int	ft_countn(int n)
+static char	*ft_reverse_string(char	*s, int negative)
 {
-	int	ni;
+	int		i;
+	int		j;
+	char	*str;
+
+	i = 0;
+	j = (ft_strlen(s));
+	str = s;
+	if (negative)
+		str[j++] = '-';
+	while (i < j)
+		ft_swap(&s[i++], &s[--j]);
+	str[ft_strlen(str)] = '\0';
+	return (s);
+}
+
+static int	ft_countn(int n)
+{
 	int	count;
 
-	ni = n;
 	count = 1;
-	if (n == -2147483648)
-		return (11);
 	if (n < 0)
 	{
-		ni = -ni;
+		n = -n;
 		count++;
 	}
-	while (ni >= 10)
+	while (n >= 10)
 	{
-		ni /= 10;
+		n /= 10;
 		count++;
 	}
 	return (count);
 }
 
-char	*validate_args(char *str, int n)
+static char	*validate_args(int n)
 {
 	if (n == -0)
-		return (ft_strcpy(str, "0"));
+		return (ft_strdup("0"));
 	if (n == -2147483648)
-		return (ft_strcpy(str, "-2147483648"));
+		return (ft_strdup("-2147483648"));
 	return (NULL);
 }
 
 char	*ft_itoa(int n)
 {
+	int		i;
 	int		len;
-	int		length_nb;
 	int		multi;
 	char	*str;
 
+	if (n == -2147483648 || n == -0)
+		return (validate_args(n));
+	i = 0;
+	multi = 0;
 	len = ft_countn(n);
-	length_nb = len;
-	str = (char *) malloc((len + 1) * sizeof(char));
-	if (n == -2147483648 || n == -0 || str == NULL)
-		return (validate_args(str, n));
+	str = (char *)ft_calloc((len + 1), sizeof(char));
+	if (str == NULL)
+		return (NULL);
 	if (n < 0)
 	{
 		multi = 1;
@@ -79,11 +91,9 @@ char	*ft_itoa(int n)
 	}
 	while (n > 0)
 	{
-		str[--len] = n % 10 + '0';
+		str[i++] = n % 10 + '0';
 		n /= 10;
 	}
-	if (multi)
-		str[(len - 1)] = '-';
-	str[(length_nb)] = '\0';
+	ft_reverse_string(str, multi);
 	return (str);
 }
