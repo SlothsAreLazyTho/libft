@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 16:26:58 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/21 12:42:04 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/24 17:51:22 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*ft_strdup(const char *s1)
 	int		len;
 	char	*str;
 
+	if (!s1)
+		return (NULL);
 	len = (ft_strlen(s1) + 1);
 	str = (char *)malloc(len * sizeof(char));
 	i = 0;

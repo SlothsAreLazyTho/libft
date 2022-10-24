@@ -6,15 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:11:48 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/21 15:10:43 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/24 17:47:20 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 
 static void	ft_swap(char *a, char *b)
 {

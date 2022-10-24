@@ -6,14 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 11:24:04 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/18 16:35:13 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/24 17:48:10 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdio.h>
-#include <limits.h>
 
 int	ft_atoi(const char *str)
 {
@@ -24,6 +21,8 @@ int	ft_atoi(const char *str)
 	i = 0;
 	multi = 1;
 	answer = 0;
+	if (!str)
+		return (0);
 	if (ft_strncmp(str, "-2147483648", 11) == 0)
 		return (INT_MIN);
 	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'

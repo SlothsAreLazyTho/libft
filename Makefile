@@ -1,67 +1,28 @@
-NAME = libft.a
+CC := "gcc"
+RM := "rm -f"
+FLAGS := "-Wall -Wextra -Werror"
 
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror
-AR = ar rcs
-RM = rm -f
+NAME = "libft.a"
+HEADERFILES = libft.h
 
-FILES = ft_memset \
-		ft_bzero \
-		ft_memcpy \
-		ft_memcpy \
-		ft_memmove \
-		ft_memchr \
-		ft_memcmp \
-		ft_strlen \
-		ft_strlcpy \
-		ft_strlcat \
-		ft_strchr \
-		ft_strnstr \
-		ft_strncmp \
-		ft_isalpha \
-		ft_isdigit \
-		ft_isalnum \
-		ft_isascii \
-		ft_isprint \
-		ft_toupper \
-		ft_tolower \
-		ft_strrchr \
-		ft_calloc \
-		ft_atoi \
-		ft_strdup \
-		ft_itoa \
-		ft_substr \
-		ft_strjoin \
-		ft_split \
-		ft_strtrim \
-		ft_putstr_fd \
-		ft_putendl_fd \
-		ft_putchar_fd \
-		ft_putnbr_fd \
-		ft_strmapi \
-		ft_striteri \
-
-SRCS_DIR = ./
-SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-
-OBJS_DIR = ./
-OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-
-
-.c.o: $(SRCS)
-	$(CC) $(CFLAGS) -c -o $@ $<
-
-$(NAME): $(OBJS)
-	$(AR) $@ $^
+SRCS = ${*.c}
+OBJS = ${SRCS:.c=.o}
 
 all: $(NAME)
 
+.c.o: $(SRCS) $(HEADERFILES)
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(NAME):	${OBJS}
+			ar rcs $(NAME) $(OBJS)
+
 clean:
-	@$(RM) $(OBJS) $(OBJS_B)
+	$(RM) $(OBJS)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:
+	@echo ko
 
-re: clean all
+re:
+	@echo ok
 
-.PHONY: bonus all clean fclean re
+.PHONY: all, clean, fclean, re

@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 14:31:45 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/18 14:49:43 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/24 17:52:13 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlcpy(char *dst, char *src, size_t size)
 	size_t	i;
 	size_t	len;
 
+	if (!dst || !src)
+		return (0);
 	i = 0;
 	len = ft_strlen(src);
 	if (size == 0)

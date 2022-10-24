@@ -6,14 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 16:59:27 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/24 17:38:57 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/24 17:47:41 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-#include <stdlib.h>
-#include <stdio.h>
 
 int	find_next_divider(char *s, char divider)
 {
@@ -101,16 +98,6 @@ char	**ft_split(const char *s, char c)
 		}
 		i++;
 	}
-
 	split[l] = NULL;
 	return (split);
 }
-
-// int	main(void)
-// {
-// 	char	*a;
-
-// 	a = "Hello!";
-// 	ft_split(a, ' ');
-// 	printf("%s", a);
-// }
