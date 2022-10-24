@@ -6,33 +6,14 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 16:59:27 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/21 15:14:42 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/24 17:38:57 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 #include <stdlib.h>
-
-int	count_strings(char *s, char divider)
-{
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
-	while (s[i])
-	{
-		if (s[i] == divider && s[i] != '\0')
-		{
-			j++;
-			while (s[i] == divider)
-				i++;
-		}
-		i++;
-	}
-	return (j);
-}
+#include <stdio.h>
 
 int	find_next_divider(char *s, char divider)
 {
@@ -41,7 +22,7 @@ int	find_next_divider(char *s, char divider)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == divider && s[i])
+		if (s[i] == divider || s[i] == '\0')
 			return (i);
 		i++;
 	}
@@ -53,40 +34,83 @@ int	ft_strlen_till_divider(char *s, char divider)
 	int	i;
 
 	i = 0;
-	while (s[i] != divider && s[i])
+	while (s[i] != divider && s[i] != '\0')
 		i++;
 	return (i);
 }
 
-//Allocates (with malloc(3)) and returns an array
-//of strings obtained by splitting ’s’ using the
-//character ’c’ as a delimiter.  The array must end
-//with a NULL pointer.
+int	count_strings(char *s, char divider)
+{
+	size_t	i;
+	size_t	j;
+	size_t	count;
+
+	i = 0;
+	j = 0;
+	count = 0;
+	while (s[i])
+	{
+		while (find_next_divider(&s[i], divider) > 0)
+		{
+			j = ft_strlen_till_divider(&s[i], divider);
+			count++;
+			i += j;
+		}
+		i++;
+	}
+	return (count);
+}
+
+void	free_split(char **array, int count)
+{
+	while (count--)
+		free(array[count]);
+	free(array);
+}
+
 char	**ft_split(const char *s, char c)
 {
-	// int		i;
-	// int		k;
-	// int		l;
-	// char	**split;
+	size_t		i;
+	size_t		k;
+	size_t		l;
+	char		*str;
+	char		**split;
 
-	// if (!s)
-	// 	return (NULL);
-	// i = 0;
-	// k = 0;
-	// l = 0;
-	// split = (char **) malloc(count_strings(s, c) * sizeof(char *));
-	// if (!split)
-	// 	return (NULL);
-	// while (s[i])
-	// {
-	// 	while (find_next_divider(&s[i], c) > 0)
-	// 	{
-	// 		k = ft_strlen_till_divider(&s[i], c);
-	// 		split[l++] = ft_substr(&s[i], 0, k);
-	// 		i += k;
-	// 	}
-	// 	i++;
-	// }
-	// split[l] = NULL;
-	// return (split);
+	if (!s)
+		return (NULL);
+	i = 0;
+	k = 0;
+	l = 0;
+	str = (char *)s;
+	split = (char **) ft_calloc(count_strings(str, c) + 1, sizeof(char *));
+	if (!split)
+		return (NULL);
+	while (str[i])
+	{
+		while (find_next_divider(&str[i], c) > 0 && i < ft_strlen(str))
+		{
+			k = ft_strlen_till_divider(&str[i], c);
+			split[l] = ft_substr(&str[i], 0, k);
+			if (split[l] == NULL)
+			{
+				free_split(split, l);
+				return (NULL);
+			}
+			l++;
+			i += k;
+		}
+		i++;
+	}
+
+	split[l] = NULL;
+	return (split);
 }
+
+// int	main(void)
+// {
+// 	char	*a;
+
+// 	a = "Hello!";
+// 	ft_split(a, ' ');
+// 	printf("%s", a);
+// }

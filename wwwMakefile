@@ -6,7 +6,7 @@ OBJS = ${SRCS:.c=.o}
 NAME = "libft.so"
 
 .c.o:
-	${CC} ${C_FLAGS} -c $< -o ${<:.c=.o}
+	${CC} ${C_FLAGS} -c $< -o $@
 
 all: $(NAME)
 
