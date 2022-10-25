@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/06 15:51:07 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/24 17:49:18 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/25 13:08:01 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	size_t	i;
 	char	*s1;
 
-	if (!s)
-		return (NULL);
 	i = 0;
 	s1 = (char *)s;
 	while (i < n)

@@ -6,98 +6,82 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 16:59:27 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/24 17:47:41 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/25 18:16:36 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-int	find_next_divider(char *s, char divider)
+int	ft_substrlen(const char *s, int start, char divider)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
+	while (s[start] != divider && s[start] != '\0')
 	{
-		if (s[i] == divider || s[i] == '\0')
-			return (i);
 		i++;
+		start++;
 	}
 	return (i);
 }
 
-int	ft_strlen_till_divider(char *s, char divider)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != divider && s[i] != '\0')
-		i++;
-	return (i);
-}
-
-int	count_strings(char *s, char divider)
+int	count_strings(const char *s, char divider)
 {
 	size_t	i;
 	size_t	j;
-	size_t	count;
+	int		div;
 
 	i = 0;
 	j = 0;
-	count = 0;
+	div = 0;
 	while (s[i])
 	{
-		while (find_next_divider(&s[i], divider) > 0)
+		if (s[i] != divider && div == 0)
 		{
-			j = ft_strlen_till_divider(&s[i], divider);
-			count++;
-			i += j;
+			div = 1;
+			j++;
 		}
+		else if (s[i] == divider)
+			div = 0;
 		i++;
 	}
-	return (count);
+	return (j);
 }
 
-void	free_split(char **array, int count)
+void	*free_split(char **array, int count)
 {
 	while (count--)
 		free(array[count]);
 	free(array);
+	return (NULL);
 }
 
-char	**ft_split(const char *s, char c)
+char	**ft_split(const char *s, char div)
 {
 	size_t		i;
-	size_t		k;
-	size_t		l;
-	char		*str;
+	size_t		j;
 	char		**split;
 
 	if (!s)
 		return (NULL);
 	i = 0;
-	k = 0;
-	l = 0;
-	str = (char *)s;
-	split = (char **) ft_calloc(count_strings(str, c) + 1, sizeof(char *));
+	j = 0;
+	split = (char **) ft_calloc(count_strings(s, div) + 1, sizeof(char *));
 	if (!split)
 		return (NULL);
-	while (str[i])
+	while (s[i])
 	{
-		while (find_next_divider(&str[i], c) > 0 && i < ft_strlen(str))
+		if (s[i] != div)
 		{
-			k = ft_strlen_till_divider(&str[i], c);
-			split[l] = ft_substr(&str[i], 0, k);
-			if (split[l] == NULL)
-			{
-				free_split(split, l);
-				return (NULL);
-			}
-			l++;
-			i += k;
+			split[j] = ft_substr(s, i, ft_substrlen(s, i, div));
+			if (split[j] == NULL)
+				return (free_split(split, j));
+			i += ft_substrlen(s, i, div) - 1;
+			j++;
 		}
 		i++;
 	}
-	split[l] = NULL;
+	split[j] = NULL;
 	return (split);
 }

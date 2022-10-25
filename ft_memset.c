@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:08:16 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/24 17:50:03 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/25 13:07:27 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	char			*p;
 	unsigned long	i;
 
-	if (!b)
-		return (NULL);
 	p = (char *) b;
 	i = 0;
 	while (i < len)

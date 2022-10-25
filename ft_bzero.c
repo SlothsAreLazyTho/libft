@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/05 13:43:11 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/24 17:48:38 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/25 13:07:19 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,5 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	if (!s)
-		return ;
 	ft_memset(s, 0, n);
 }
