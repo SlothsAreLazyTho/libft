@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strjoin.c                                       :+:    :+:            */
+/*   ft_lstsize.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/13 14:27:09 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/26 12:30:13 by cbijman       ########   odam.nl         */
+/*   Created: 2022/10/26 13:51:37 by cbijman       #+#    #+#                 */
+/*   Updated: 2022/10/26 14:52:18 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdlib.h>
-
-char	*ft_strjoin(char const *s1, char const *s2)
+int	ft_lstsize(t_list *lst)
 {
-	int		s1_len;
-	int		s2_len;
-	char	*str;
+	size_t	i;
+	t_list	*obj;
 
-	if (s1 == NULL || s2 == NULL)
-		return (NULL);
-	s1_len = ft_strlen(s1);
-	s2_len = ft_strlen(s2) + 1;
-	str = (char *)malloc((s1_len + s2_len) * sizeof(char));
-	if (str == NULL)
-		return (NULL);
-	ft_strlcpy(str, (char *)s1, s1_len + 1);
-	ft_strlcat(&str[s1_len], (char *)s2, s2_len);
-	return (str);
+	i = 0;
+	obj = lst;
+	while (obj)
+	{
+		obj = obj->next;
+		i++;
+	}
+	return (i);
 }

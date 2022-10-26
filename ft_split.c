@@ -6,14 +6,14 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 16:59:27 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/25 18:16:36 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/26 14:08:46 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdlib.h>
 
-int	ft_substrlen(const char *s, int start, char divider)
+static int	ft_substrlen(const char *s, int start, char divider)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ int	ft_substrlen(const char *s, int start, char divider)
 	return (i);
 }
 
-int	count_strings(const char *s, char divider)
+static int	count_strings(const char *s, char divider)
 {
 	size_t	i;
 	size_t	j;

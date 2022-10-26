@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         ::::::::             #
+#    Makefile                                           :+:    :+:             #
+#                                                      +:+                     #
+#    By: cbijman <cbijman@student.codam.nl>           +#+                      #
+#                                                    +#+                       #
+#    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
+#    Updated: 2022/10/26 17:50:30 by cbijman       ########   odam.nl          #
+#                                                                              #
+# **************************************************************************** #
+
 CC = gcc
 RM = rm -f
 AR = ar -rcs
@@ -5,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
 HEADERFILES = libft.h
 
-SRCS = ft_memset.c	\
+SRCS = 	ft_memset.c	\
 		ft_bzero.c	\
 		ft_memcpy.c	\
 		ft_memmove.c \
@@ -40,22 +52,32 @@ SRCS = ft_memset.c	\
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
 		
+SRCS_BONUS = 	ft_lstnew.c \
+				ft_lstadd_front.c \
+				ft_lstsize.c \
+				ft_lstlast.c \
+				ft_lstadd_back.c \
+
 OBJS = $(SRCS:%.c=%.o)
+OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
 
-.c.o: $(SRCS) $(HEADERFILES)
-	$(CC) $(CFLAGS) -c -o $@ $<
+.c.o: 	$(SRCS) $(HEADERFILES)
+		$(CC) $(CFLAGS) -c -o $@ $<
 
-$(NAME):	${OBJS}
-			ar rcs $(NAME) $(OBJS)
+$(NAME):	$(OBJS)
+			$(AR) $(NAME) $(OBJS)
+
+bonus:	${OBJS_BONUS}
+		$(AR) $(NAME) $(OBJS_BONUS)
 
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: clean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: bonus all clean fclean re

@@ -6,13 +6,19 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/21 15:14:31 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/26 17:50:18 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+
+typedef struct s_list
+{
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
@@ -48,5 +54,36 @@ char	*ft_strtrim(char *s1, char *set);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+//#######################//
+//#	Link List Functions #//
+//#######################//
+
+/// @brief 	Allocates (with malloc(3)) and returns a new node, 
+///	The member variable ’content’ is initialized with the value 
+/// of the parameter ’content’. The variable ’next’ is initialized to NULL.
+/// @param content: The content to create the node with.
+/// @return The new node
+t_list	*ft_lstnew(void *content);
+
+/// @brief Adds the node ’new’ at the beginning of the list.
+/// @param lst: The address of a pointer to the first link of a list.
+/// @param new: The address of a pointer to the node to be added to the list.
+void	ft_lstadd_front(t_list **lst, t_list *new);
+
+/// @brief Counts the number of nodes in a list.
+/// @param lst: The beginning of the list.
+/// @return The length of the list
+int		ft_lstsize(t_list *lst);
+
+/// @brief Returns the last node of the list.
+/// @param lst: The beginning of the list
+/// @return Last node of the list
+t_list	*ft_lstlast(t_list *lst);
+
+/// @brief Adds the node ’new’ at the end of the list. 
+/// @param lst:  The address of a pointer to the first link of a list.
+/// @param new:  The address of a pointer to the node to be added to the list.
+void	ft_lstadd_back(t_list **lst, t_list *new);
 
 #endif
