@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/27 16:44:33 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/27 18:35:53 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/27 18:37:09 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 
 int main(void)
 {
-
+	
 }
