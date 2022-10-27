@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2022/10/27 15:16:59 by cbijman       ########   odam.nl          #
+#    Updated: 2022/10/27 17:45:25 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,6 +59,8 @@ SRCS_BONUS = 	ft_lstnew.c \
 				ft_lstadd_back.c \
 				ft_lstdelone.c \
 				ft_lstclear.c \
+				ft_lstiter.c \
+				ft_lstmap.c \
 
 OBJS = $(SRCS:%.c=%.o)
 OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)

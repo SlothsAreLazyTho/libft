@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/27 16:22:05 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/10/27 17:38:32 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 
-//File
+//File Operations
 void	ft_putchar_fd(char c, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
@@ -69,11 +69,6 @@ void	*ft_memset(void *b, int c, size_t len);
 /// @return The new node
 t_list	*ft_lstnew(void *content);
 
-/// @brief Adds the node ’new’ at the beginning of the list.
-/// @param lst: The address of a pointer to the first link of a list.
-/// @param new: The address of a pointer to the node to be added to the list.
-void	ft_lstadd_front(t_list **lst, t_list *new);
-
 /// @brief Counts the number of nodes in a list.
 /// @param lst: The beginning of the list.
 /// @return The length of the list
@@ -83,6 +78,11 @@ int		ft_lstsize(t_list *lst);
 /// @param lst: The beginning of the list
 /// @return Last node of the list
 t_list	*ft_lstlast(t_list *lst);
+
+/// @brief Adds the node ’new’ at the beginning of the list.
+/// @param lst: The address of a pointer to the first link of a list.
+/// @param new: The address of a pointer to the node to be added to the list.
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 /// @brief Adds the node ’new’ at the end of the list. 
 /// @param lst:  The address of a pointer to the first link of a list.
@@ -104,5 +104,22 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *));
 /// @param del:  The address of the function used to delete the 
 /// content of the node.
 void	ft_lstclear(t_list **lst, void (*del)(void *));
+
+/// @brief 
+/// @param lst:  The address of a pointer to a node.
+/// @param f:  The address of the function used to iterate on the list.
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+
+/// @brief Iterates the list ’lst’ and applies the function
+/// ’f’ on the content of each node.  Creates a new
+/// list resulting of the successive applications of
+/// the function ’f’.  The ’del’ function is used to
+/// delete the content of a node if needed.
+/// @param lst:  The address of a pointer to a node.
+/// @param f:  The address of the function used to iterate on the list.
+/// @param del:  The address of the function used to delete 
+/// the content of a node if needed.
+/// @return The new list, NULL if the allocation fails.
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 #endif
