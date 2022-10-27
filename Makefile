@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2022/10/26 17:50:30 by cbijman       ########   odam.nl          #
+#    Updated: 2022/10/27 15:16:59 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,12 +51,14 @@ SRCS = 	ft_memset.c	\
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
-		
+
 SRCS_BONUS = 	ft_lstnew.c \
 				ft_lstadd_front.c \
 				ft_lstsize.c \
 				ft_lstlast.c \
 				ft_lstadd_back.c \
+				ft_lstdelone.c \
+				ft_lstclear.c \
 
 OBJS = $(SRCS:%.c=%.o)
 OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
