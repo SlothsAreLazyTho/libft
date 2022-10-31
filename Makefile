@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2022/10/27 17:45:25 by cbijman       ########   odam.nl          #
+#    Updated: 2022/10/31 17:44:26 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,11 +62,14 @@ SRCS_BONUS = 	ft_lstnew.c \
 				ft_lstiter.c \
 				ft_lstmap.c \
 
-OBJS = $(SRCS:%.c=%.o)
-OBJS_BONUS = $(SRCS_BONUS:%.c=%.o)
 
-.c.o: 	$(SRCS) $(HEADERFILES)
-		$(CC) $(CFLAGS) -c -o $@ $<
+OBJS = ${SRCS:%.c=bin/%.o}
+OBJS_BONUS = ${SRCS_BONUS:%.c=bin/%.o}
+
+#Don't mind the mkdir (:
+bin/%.o: src/%.c $(HEADERFILES)
+	@mkdir -p bin
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME):	$(OBJS)
 			$(AR) $(NAME) $(OBJS)
