@@ -6,11 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/04 12:38:33 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/19 17:07:59 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/11/24 17:35:23 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {

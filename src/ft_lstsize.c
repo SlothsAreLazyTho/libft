@@ -6,11 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/26 13:51:37 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/26 14:52:18 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/11/24 17:35:23 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 
 int	ft_lstsize(t_list *lst)
 {

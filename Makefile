@@ -6,16 +6,16 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2022/10/31 17:44:26 by cbijman       ########   odam.nl          #
+#    Updated: 2022/11/24 17:49:37 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 CC = gcc
 RM = rm -f
 AR = ar -rcs
-CFLAGS = -Wall -Wextra -Werror
 NAME = libft.a
-HEADERFILES = libft.h
+INC_DIR = ./include
+CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR)
 
 SRCS = 	ft_memset.c	\
 		ft_bzero.c	\
@@ -66,10 +66,9 @@ SRCS_BONUS = 	ft_lstnew.c \
 OBJS = ${SRCS:%.c=bin/%.o}
 OBJS_BONUS = ${SRCS_BONUS:%.c=bin/%.o}
 
-#Don't mind the mkdir (:
-bin/%.o: src/%.c $(HEADERFILES)
+bin/%.o: src/%.c
 	@mkdir -p bin
-	$(CC) $(CFLAGS) -c -o $@ $<
+	$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME):	$(OBJS)
 			$(AR) $(NAME) $(OBJS)
@@ -80,7 +79,7 @@ bonus:	${OBJS_BONUS}
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) $(OBJS) $(OBJS_BONUS)+
 
 fclean: clean
 	$(RM) $(NAME)

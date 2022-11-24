@@ -6,11 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/17 16:59:27 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/27 18:02:27 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/11/24 17:35:23 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft.h"
+#include "libft.h"
 #include <stdlib.h>
 
 static int	ft_substrlen(const char *s, int start, char divider)
