@@ -6,13 +6,17 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/10/27 17:38:32 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/12/13 13:13:36 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 # include <stddef.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 typedef struct s_list
 {
@@ -49,8 +53,15 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char *s1, char *set);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
+char	*ft_strcpy(char *s1, char *s2);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+/// @brief Write a function that returns a line read from a file descriptor
+/// @param fd: The file descriptor to read from
+/// @return Read line: correct behavior
+/// and NULL if there is nothing else to read, or an error occurred
+char	*get_next_line(int fd);
 
 //Memory
 void	ft_bzero(void *s, size_t n);

@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2022/11/24 17:49:37 by cbijman       ########   odam.nl          #
+#    Updated: 2022/12/13 13:16:11 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,6 +30,7 @@ SRCS = 	ft_memset.c	\
 		ft_strrchr.c \
 		ft_strnstr.c \
 		ft_strncmp.c \
+		ft_strcpy.c \
 		ft_atoi.c \
 		ft_isalpha.c \
 		ft_isdigit.c \
@@ -51,6 +52,7 @@ SRCS = 	ft_memset.c	\
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		get_next_line.c \
 
 SRCS_BONUS = 	ft_lstnew.c \
 				ft_lstadd_front.c \
@@ -79,7 +81,8 @@ bonus:	${OBJS_BONUS}
 all: $(NAME)
 
 clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)+
+	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) -rf bin
 
 fclean: clean
 	$(RM) $(NAME)
