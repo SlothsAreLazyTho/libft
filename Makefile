@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2022/12/13 13:16:11 by cbijman       ########   odam.nl          #
+#    Updated: 2022/12/14 18:02:58 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,9 @@ AR = ar -rcs
 NAME = libft.a
 INC_DIR = ./include
 CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR)
+
+RESET = \033[0m
+GREEN = \033[0;92m
 
 SRCS = 	ft_memset.c	\
 		ft_bzero.c	\
@@ -52,6 +55,8 @@ SRCS = 	ft_memset.c	\
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
 		ft_putnbr_fd.c \
+		ft_printf.c \
+		ft_printf_utils.c \
 		get_next_line.c \
 
 SRCS_BONUS = 	ft_lstnew.c \
@@ -70,7 +75,8 @@ OBJS_BONUS = ${SRCS_BONUS:%.c=bin/%.o}
 
 bin/%.o: src/%.c
 	@mkdir -p bin
-	$(CC) $(CFLAGS) -o $@ -c $<
+	@echo "$(GREEN)Compiling: $(RESET)$<"
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME):	$(OBJS)
 			$(AR) $(NAME) $(OBJS)

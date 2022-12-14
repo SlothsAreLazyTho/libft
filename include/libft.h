@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/12/13 13:13:36 by cbijman       ########   odam.nl         */
+/*   Updated: 2022/12/14 17:57:48 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,26 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+/// @brief Mimic version of the printf() function.
+/// @param s: The string to print
+/// @param ...: Variadic arguments.
+/// @return Length from the entire string to print.
+int		ft_printf(const char *s, ...);
+
+/// @brief Write a function that returns a line read from a file descriptor
+/// @param fd: The file descriptor to read from
+/// @return Read line: correct behavior
+/// and NULL if there is nothing else to read, or an error occurred
+char	*get_next_line(int fd);
+
+//Put operations to be removed. Obsolete.
+int		ft_putchar(char c);
+int		ft_putstr(char *s);
+int		ft_putnbr(int nb);
+int		ft_putunbr(unsigned int nb);
+int		ft_puthex(unsigned long int n, int type);
+
+//Checkers
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
@@ -56,12 +76,6 @@ char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strcpy(char *s1, char *s2);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
-
-/// @brief Write a function that returns a line read from a file descriptor
-/// @param fd: The file descriptor to read from
-/// @return Read line: correct behavior
-/// and NULL if there is nothing else to read, or an error occurred
-char	*get_next_line(int fd);
 
 //Memory
 void	ft_bzero(void *s, size_t n);
