@@ -6,21 +6,34 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2022/12/14 18:02:58 by cbijman       ########   odam.nl          #
+#    Updated: 2023/04/12 15:30:09 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-RM = rm -f
-AR = ar -rcs
+# Variables
 NAME = libft.a
-INC_DIR = ./include
-CFLAGS = -Wall -Wextra -Werror -I$(INC_DIR)
 
+# Commands
+CC = gcc
+AR = ar -rcs
+RM = rm -rf
+
+# Colours
 RESET = \033[0m
 GREEN = \033[0;92m
+RED = \033[31;01m
 
-SRCS = 	ft_memset.c	\
+# Folders
+INCLUDE_DIR = ./include
+BIN_DIR = bin
+SRC_DIR = src
+
+# Flags
+CFLAGS = -Wall -Wextra -Werror
+IFLAG = -I$(INCLUDE_DIR)
+
+# Files
+SRC =	ft_memset.c	\
 		ft_bzero.c	\
 		ft_memcpy.c	\
 		ft_memmove.c \
@@ -37,6 +50,7 @@ SRCS = 	ft_memset.c	\
 		ft_atoi.c \
 		ft_isalpha.c \
 		ft_isdigit.c \
+		ft_isnumber.c \
 		ft_isalnum.c \
 		ft_isascii.c \
 		ft_isprint.c \
@@ -58,41 +72,38 @@ SRCS = 	ft_memset.c	\
 		ft_printf.c \
 		ft_printf_utils.c \
 		get_next_line.c \
+		ft_lstnew.c \
+		ft_lstadd_front.c \
+		ft_lstsize.c \
+		ft_lstlast.c \
+		ft_lstadd_back.c \
+		ft_lstdelone.c \
+		ft_lstclear.c \
+		ft_lstiter.c \
+		ft_lstmap.c \
 
-SRCS_BONUS = 	ft_lstnew.c \
-				ft_lstadd_front.c \
-				ft_lstsize.c \
-				ft_lstlast.c \
-				ft_lstadd_back.c \
-				ft_lstdelone.c \
-				ft_lstclear.c \
-				ft_lstiter.c \
-				ft_lstmap.c \
+OBJS = ${SRC:%.c=$(BIN_DIR)/%.o}
 
-
-OBJS = ${SRCS:%.c=bin/%.o}
-OBJS_BONUS = ${SRCS_BONUS:%.c=bin/%.o}
-
-bin/%.o: src/%.c
-	@mkdir -p bin
-	@echo "$(GREEN)Compiling: $(RESET)$<"
-	@$(CC) $(CFLAGS) -o $@ -c $<
-
-$(NAME):	$(OBJS)
-			$(AR) $(NAME) $(OBJS)
-
-bonus:	${OBJS_BONUS}
-		$(AR) $(NAME) $(OBJS_BONUS)
-
+# Operations
 all: $(NAME)
 
-clean:
-	$(RM) $(OBJS) $(OBJS_BONUS)
-	$(RM) -rf bin
+$(BIN_DIR)/%.o: $(SRC_DIR)/%.c | $(BIN_DIR)
+	@$(CC) $(CFLAGS) $(IFLAG) -o $@ -c $<
+	@echo "$(GREEN)Compiling: $(RESET)$(notdir $<)"
 
+$(NAME):	$(OBJS)
+			@$(AR) $(NAME) $(OBJS)
+			@echo "$(GREEN)Compiling: $(RESET)$(NAME)"
+		
+$(BIN_DIR):
+	@mkdir -p bin
+
+clean:
+	$(RM) $(BIN_DIR)
+	
 fclean: clean
 	$(RM) $(NAME)
-
-re: clean all
+	
+re: fclean all
 
 .PHONY: bonus all clean fclean re
