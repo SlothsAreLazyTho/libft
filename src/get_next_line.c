@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/12/09 17:49:58 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/12/13 13:14:14 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/04/26 17:33:51 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 //Util function that copies string from S2 to S1. S1 will be freed after
 //this operation and a new allocated string will be returned with s1 and s2
 //concaternated.
-static char	*ft_strjoin_free(char *s1, char *s2)
+char	*ft_strjoin_free(char *s1, char *s2)
 {
 	char	*newstr;
 	size_t	i;

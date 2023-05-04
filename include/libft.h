@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/04/12 15:31:38 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/05/04 15:21:49 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ int		ft_printf(const char *s, ...);
 /// @return Read line: correct behavior
 /// and NULL if there is nothing else to read, or an error occurred
 char	*get_next_line(int fd);
+
+/// @brief Function that frees the first string and appends the second string.
+/// @return New allocated string.
+char	*ft_strjoin_free(char *s1, char *s2);
 
 //Put operations to be removed. Obsolete.
 int		ft_putchar(char c);
@@ -115,6 +119,12 @@ void	ft_lstadd_front(t_list **lst, t_list *new);
 /// @param lst:  The address of a pointer to the first link of a list.
 /// @param new:  The address of a pointer to the node to be added to the list.
 void	ft_lstadd_back(t_list **lst, t_list *new);
+
+/// @brief Adds the node ’new’ at the end of the list. 
+/// @param lst:  The address of a pointer to the first link of a list.
+/// @param content: The content that will be added to of the list.
+/// @return The list.
+t_list	*ft_lstadd_back_content(t_list **lst, void *content);
 
 /// @brief Takes as a parameter a node and frees the memory of
 ///	the node’s content using the function ’del’ given
