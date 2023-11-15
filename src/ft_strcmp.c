@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isnumber.c                                      :+:    :+:            */
+/*   ft_strcmp.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/12 15:28:43 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/11/15 14:36:46 by cbijman       ########   odam.nl         */
+/*   Created: 2023/06/29 18:03:32 by cbijman       #+#    #+#                 */
+/*   Updated: 2023/11/15 14:35:19 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/libft.h"
 
-bool	ft_isnumber(const char *str)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int		i;
+	int	i;
 
 	i = 0;
-	if (!str || !*str)
-		return (false);
-	if (str[i] == '-' || str[i] == '+')
+	if (!s1 || !s2)
+		return (1);
+	while ((s1[i] && s2[i]) != '\0' && s1[i] == s2[i])
 		i++;
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (false);
-		i++;
-	}
-	return (true);
+	return (s1[i] - s2[i]);
 }

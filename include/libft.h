@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/05/04 15:21:49 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/11/15 14:36:20 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
 bool	ft_isnumber(const char *str);
+int		ft_isspace(char c);
 
 //File Operations
 void	ft_putchar_fd(char c, int fd);
@@ -75,6 +76,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t size);
 size_t	ft_strlen(const char *str);
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strcmp(char *s1, char *s2);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char *s1, char *set);
@@ -84,6 +86,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 //Memory
+void	*ft_realloc(void *ptr, size_t size);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);

@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2023/04/12 15:30:09 by cbijman       ########   odam.nl          #
+#    Updated: 2023/11/15 14:37:36 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,9 @@ SRC =	ft_memset.c	\
 		ft_lstclear.c \
 		ft_lstiter.c \
 		ft_lstmap.c \
+		ft_realloc.c \
+		ft_isspace.c \
+		ft_strcmp.c \
 
 OBJS = ${SRC:%.c=$(BIN_DIR)/%.o}
 

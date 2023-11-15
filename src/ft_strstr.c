@@ -1,31 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isnumber.c                                      :+:    :+:            */
+/*   ft_strstr.c                                        :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/12 15:28:43 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/11/15 14:36:46 by cbijman       ########   odam.nl         */
+/*   Created: 2023/06/28 16:00:22 by cbijman       #+#    #+#                 */
+/*   Updated: 2023/09/26 18:58:50 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/libft.h"
 
-bool	ft_isnumber(const char *str)
+char	*ft_strstr(char *str, char *to_find)
 {
-	int		i;
+	size_t	i;
+	size_t	c1;
+	size_t	pos;
 
+	if (!*to_find)
+		return (str);
 	i = 0;
-	if (!str || !*str)
-		return (false);
-	if (str[i] == '-' || str[i] == '+')
-		i++;
 	while (str[i])
 	{
-		if (!ft_isdigit(str[i]))
-			return (false);
+		if (str[i] == to_find[c1])
+		{
+			pos = i;
+			c1 = 0;
+			while (str[i] == to_find[c1] && to_find[c1] != '\0')
+			{
+				c1++;
+				i++;
+				if (to_find[c1] == '\0')
+					return (&str[pos]);
+			}
+			i = pos;
+		}
 		i++;
 	}
-	return (true);
+	return (NULL);
 }

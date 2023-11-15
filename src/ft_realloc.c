@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isnumber.c                                      :+:    :+:            */
+/*   ft_realloc.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/04/12 15:28:43 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/11/15 14:36:46 by cbijman       ########   odam.nl         */
+/*   Created: 2023/06/28 16:21:27 by cbijman       #+#    #+#                 */
+/*   Updated: 2023/09/26 18:58:39 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../include/libft.h"
+#include <stdlib.h>
 
-bool	ft_isnumber(const char *str)
+void	*ft_realloc(void *ptr, size_t size)
 {
-	int		i;
+	void	*nptr;
+	size_t	newsize;
 
-	i = 0;
-	if (!str || !*str)
-		return (false);
-	if (str[i] == '-' || str[i] == '+')
-		i++;
-	while (str[i])
-	{
-		if (!ft_isdigit(str[i]))
-			return (false);
-		i++;
-	}
-	return (true);
+	newsize = size;
+	if (!ptr)
+		return (NULL);
+	if (size == 0)
+		return (free(ptr), NULL);
+	if (size < sizeof(ptr))
+		newsize = sizeof(ptr);
+	nptr = malloc(newsize);
+	if (!nptr)
+		return (free(ptr), NULL);
+	ft_memcpy(nptr, ptr, newsize);
+	return (nptr);
 }
