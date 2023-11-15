@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/11/15 14:36:20 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/11/15 14:50:27 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
+char	*ft_strstr(char *str, char *to_find);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strtrim(char *s1, char *set);
 char	*ft_substr(const char *s, unsigned int start, size_t len);

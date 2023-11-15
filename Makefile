@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2023/11/15 14:37:36 by cbijman       ########   odam.nl          #
+#    Updated: 2023/11/15 14:50:20 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ SRC =	ft_memset.c	\
 		ft_strchr.c	\
 		ft_strrchr.c \
 		ft_strnstr.c \
+		ft_strstr.c \
 		ft_strncmp.c \
 		ft_strcpy.c \
 		ft_atoi.c \
