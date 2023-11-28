@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/06/28 16:21:27 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/09/26 18:58:39 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/11/28 13:44:44 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ void	*ft_realloc(void *ptr, size_t size)
 	if (!nptr)
 		return (free(ptr), NULL);
 	ft_memcpy(nptr, ptr, newsize);
+	free(ptr);
 	return (nptr);
 }
