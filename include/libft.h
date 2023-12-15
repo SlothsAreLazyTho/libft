@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/12/15 01:20:35 by root          ########   odam.nl         */
+/*   Updated: 2023/12/15 02:29:29 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 # include <stddef.h>
 # include <stdbool.h>
+# include <limits.h>
 
 # ifndef FT_DEBUG
 #  define FT_DEBUG 0
@@ -28,6 +29,13 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct t_string
+{
+	char	*content;
+	size_t	index;
+	size_t	capacity;
+}	t_string;
 
 /// @brief Mimic version of the printf() function.
 /// @param s: The string to print
@@ -166,5 +174,16 @@ void	ft_lstiter(t_list *lst, void (*f)(void *));
 /// the content of a node if needed.
 /// @return The new list, NULL if the allocation fails.
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+
+
+
+// New functions for string builder
+
+bool	ft_string(t_string *arg, size_t size);
+bool	ft_string_append(t_string *arg, char c);
+bool	ft_string_join(t_string *arg, char *str);
+char	*ft_string_cstr(t_string *arg);
+void	ft_string_free(t_string *arg);
 
 #endif

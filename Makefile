@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2023/12/15 01:20:53 by root          ########   odam.nl          #
+#    Updated: 2023/12/15 02:08:43 by root          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,11 @@ FILES	=	ft_memset \
 			ft_realloc \
 			ft_isspace \
 			ft_strcmp \
+			ft_string_init \
+			ft_string_join \
+			ft_string_cstr \
+			ft_string_append \
+			ft_string_free \
 
 HEADER = $(INC_DIR)/libft.h
 
@@ -92,6 +97,7 @@ vpath %.c	$(SRC_DIR) \
 			$(SRC_DIR)/stdio \
 			$(SRC_DIR)/stdlib \
 			$(SRC_DIR)/string \
+			$(SRC_DIR)/string/builder \
 			$(SRC_DIR)/types \
 
 SRC 	= ${addsuffix .c, $(FILES)}

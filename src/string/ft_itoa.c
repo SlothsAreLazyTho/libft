@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:11:48 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/12/15 00:57:00 by root          ########   odam.nl         */
+/*   Updated: 2023/12/15 02:38:33 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_swap(char *a, char *b)
 	*b = temp;
 }
 
-static char	*ft_reverse_string(char	*s, int negative)
+static char	*ft_reverse_string(char	*s, int n)
 {
 	int		i;
 	int		j;
@@ -30,7 +30,7 @@ static char	*ft_reverse_string(char	*s, int negative)
 	i = 0;
 	j = (ft_strlen(s));
 	str = s;
-	if (negative)
+	if (n)
 		str[j++] = '-';
 	while (i < j)
 		ft_swap(&s[i++], &s[--j]);
@@ -38,58 +38,28 @@ static char	*ft_reverse_string(char	*s, int negative)
 	return (s);
 }
 
-static int	ft_countn(int n)
+char	*ft_itoa(int n)
 {
-	int	count;
-
-	count = 1;
-	if (n < 0)
-	{
-		n = -n;
-		count++;
-	}
-	while (n >= 10)
-	{
-		n /= 10;
-		count++;
-	}
-	return (count);
-}
-
-static char	*validate_args(int n)
-{
+	t_string	str;
+	char		*tmp;
+		
 	if (n == -0)
 		return (ft_strdup("0"));
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
-	return (NULL);
-}
-
-char	*ft_itoa(int n)
-{
-	int		i;
-	int		len;
-	int		multi;
-	char	*str;
-
-	if (n == -2147483648 || n == -0)
-		return (validate_args(n));
-	i = 0;
-	multi = 0;
-	len = ft_countn(n);
-	str = (char *)ft_calloc((len + 1), sizeof(char));
-	if (str == NULL)
+	if (!ft_string(&str, 8))
+		return (NULL);
+	if (n < 0 && !ft_string_append(&str, '-'))
 		return (NULL);
 	if (n < 0)
-	{
-		multi = 1;
 		n = -n;
-	}
-	while (n > 0)
+	while (n > 0 && ft_string_append(&str, (n % 10 + '0')))
 	{
-		str[i++] = n % 10 + '0';
 		n /= 10;
 	}
-	ft_reverse_string(str, multi);
-	return (str);
+	tmp = ft_string_cstr(&str);
+	if (!tmp)
+		return (NULL);
+	ft_reverse_string(tmp, *tmp == '-');
+	return (tmp);
 }
