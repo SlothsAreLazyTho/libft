@@ -6,11 +6,11 @@
 /*   By: yfu <marvin@42.fr>                           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/03/12 15:59:59 by yfu           #+#    #+#                 */
-/*   Updated: 2023/11/15 14:34:23 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/12/15 00:47:51 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 int	ft_isspace(char c)
 {

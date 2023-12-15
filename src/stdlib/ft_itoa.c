@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:11:48 by cbijman       #+#    #+#                 */
-/*   Updated: 2022/11/24 17:35:23 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/12/15 00:57:00 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	ft_swap(char *a, char *b)
 {
-	int	temp;	
+	int	temp;
 
 	temp = *a;
 	*a = *b;

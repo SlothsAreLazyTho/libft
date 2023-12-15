@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strstr.c                                        :+:    :+:            */
+/*   ft_realloc.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2023/06/28 16:00:22 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/09/26 18:58:50 by cbijman       ########   odam.nl         */
+/*   Created: 2023/06/28 16:21:27 by cbijman       #+#    #+#                 */
+/*   Updated: 2023/12/15 00:50:56 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strstr(char *str, char *to_find)
+void	*ft_realloc(void *ptr, size_t oldsize, size_t size)
 {
-	size_t	i;
-	size_t	c1;
-	size_t	pos;
+	void	*nptr;
 
-	if (!*to_find)
-		return (str);
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == to_find[c1])
-		{
-			pos = i;
-			c1 = 0;
-			while (str[i] == to_find[c1] && to_find[c1] != '\0')
-			{
-				c1++;
-				i++;
-				if (to_find[c1] == '\0')
-					return (&str[pos]);
-			}
-			i = pos;
-		}
-		i++;
-	}
-	return (NULL);
+	if (!ptr)
+		return (NULL);
+	if (oldsize == size)
+		return (ptr);
+	if (oldsize > size)
+		size = oldsize;
+	nptr = malloc(size);
+	if (!nptr)
+		return (free(ptr), NULL);
+	ft_memcpy(nptr, ptr, oldsize);
+	free(ptr);
+	return (nptr);
 }

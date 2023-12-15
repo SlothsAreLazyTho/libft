@@ -1,5 +1,8 @@
-.DS_Store
+**/.DS_Store
 .vscode
 *.out
 *.o
 *.a
+
+# Folders
+**/bin

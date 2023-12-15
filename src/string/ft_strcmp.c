@@ -6,11 +6,11 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/06/29 18:03:32 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/11/15 14:35:19 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/12/15 00:47:51 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "libft.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {

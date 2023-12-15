@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/11/15 14:50:27 by cbijman       ########   odam.nl         */
+/*   Updated: 2023/12/15 01:20:35 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,10 @@
 # define LIBFT_H
 # include <stddef.h>
 # include <stdbool.h>
+
+# ifndef FT_DEBUG
+#  define FT_DEBUG 0
+# endif
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 42
@@ -87,7 +91,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 
 //Memory
-void	*ft_realloc(void *ptr, size_t size);
+void	*ft_realloc(void *ptr, size_t oldsize, size_t size);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_memchr(const void *s, int c, size_t n);
