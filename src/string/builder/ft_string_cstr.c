@@ -6,7 +6,7 @@
 /*   By: root <root@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/15 01:42:54 by root          #+#    #+#                 */
-/*   Updated: 2023/12/15 02:35:13 by root          ########   odam.nl         */
+/*   Updated: 2023/12/18 14:28:29 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 char	*ft_string_cstr(t_string *arg)
 {
 	char	*tmp;
-	
+
 	if (!ft_string_append(arg, '\0'))
 		return (ft_string_free(arg), NULL);
 	tmp = ft_strdup(arg->content);

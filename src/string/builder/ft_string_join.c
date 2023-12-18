@@ -6,7 +6,7 @@
 /*   By: root <root@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/15 01:42:54 by root          #+#    #+#                 */
-/*   Updated: 2023/12/15 02:08:43 by root          ########   odam.nl         */
+/*   Updated: 2023/12/18 14:28:40 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@
  * @param str The string to be joined.
  * @return True if the string was successfully joined, false otherwise.
  */
-bool ft_string_join(t_string *arg, char *str)
+bool	ft_string_join(t_string *arg, char *str)
 {
-	size_t index;
+	size_t	index;
 
 	if (!arg || !str || !*str)
 		return (true);

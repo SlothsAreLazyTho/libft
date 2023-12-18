@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 15:11:48 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/12/15 02:38:33 by root          ########   odam.nl         */
+/*   Updated: 2023/12/18 14:28:53 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_swap(char *a, char *b)
 	*b = temp;
 }
 
-static char	*ft_reverse_string(char	*s, int n)
+static char	*ft_reverse_string(char *s, int n)
 {
 	int		i;
 	int		j;
@@ -42,7 +42,7 @@ char	*ft_itoa(int n)
 {
 	t_string	str;
 	char		*tmp;
-		
+
 	if (n == -0)
 		return (ft_strdup("0"));
 	if (n == -2147483648)

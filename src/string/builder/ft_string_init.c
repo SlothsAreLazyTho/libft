@@ -6,7 +6,7 @@
 /*   By: root <root@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/12/15 01:42:54 by root          #+#    #+#                 */
-/*   Updated: 2023/12/15 02:30:32 by root          ########   odam.nl         */
+/*   Updated: 2023/12/18 14:28:36 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 /**
  * @brief Initializes a string object.
- * 
+ *
  * This function allocates memory for the string and initializes its properties.
- * 
+ *
  * @param arg The string object to initialize.
  * @param size The initial size of the string.
  * @return true if the string is successfully initialized, false otherwise.
