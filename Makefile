@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2023/12/15 02:08:43 by root          ########   odam.nl          #
+#    Updated: 2024/01/18 15:15:41 by cbijman       ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,6 +58,7 @@ FILES	=	ft_memset \
 			ft_tolower \
 			ft_calloc \
 			ft_strdup \
+			ft_arrdup \
 			ft_substr \
 			ft_strjoin \
 			ft_strtrim \
@@ -89,6 +90,8 @@ FILES	=	ft_memset \
 			ft_string_cstr \
 			ft_string_append \
 			ft_string_free \
+			ft_color \
+			ft_color_utils \
 
 HEADER = $(INC_DIR)/libft.h
 
@@ -97,6 +100,7 @@ vpath %.c	$(SRC_DIR) \
 			$(SRC_DIR)/stdio \
 			$(SRC_DIR)/stdlib \
 			$(SRC_DIR)/string \
+			$(SRC_DIR)/string/color \
 			$(SRC_DIR)/string/builder \
 			$(SRC_DIR)/types \
 

@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2023/12/18 14:29:01 by cbijman       ########   odam.nl         */
+/*   Updated: 2024/01/18 15:14:12 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,20 @@ typedef struct t_string
 	size_t			index;
 	size_t			capacity;
 }					t_string;
+
+typedef union u_color
+{
+	struct
+	{
+		unsigned char	a;
+		unsigned char	r;
+		unsigned char	g;
+		unsigned char	b;
+	};
+	unsigned int		hexdecimal;
+	unsigned char		rgba[4];
+}	t_color;
+
 
 /// @brief Mimic version of the printf() function.
 /// @param s: The string to print
@@ -81,6 +95,7 @@ char				*ft_itoa(int n);
 char				**ft_split(const char *s, char c);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *s1);
+char				**ft_arrdup(char **arr);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
@@ -178,11 +193,19 @@ t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 						void (*del)(void *));
 
 // New functions for string builder
-
 bool				ft_string(t_string *arg, size_t size);
 bool				ft_string_append(t_string *arg, char c);
 bool				ft_string_join(t_string *arg, char *str);
 char				*ft_string_cstr(t_string *arg);
 void				ft_string_free(t_string *arg);
+
+
+// New functions for colouring
+t_color				*ft_newcolor(int r, int g, int b, int a);
+int					ft_get_r(int rgba);
+int					ft_get_g(int rgba);
+int					ft_get_b(int rgba);
+int					ft_get_a(int rgba);
+int					ft_get_rgba(int r, int g, int b, int a);
 
 #endif
