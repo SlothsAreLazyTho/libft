@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2024/01/18 15:15:41 by cbijman       ########   odam.nl          #
+#    Updated: 2024/01/19 01:47:39 by root          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ FILES	=	ft_memset \
 			ft_memchr \
 			ft_memcmp \
 			ft_strlen \
+			ft_arrlen \
 			ft_strlcpy \
 			ft_strlcat \
 			ft_strchr \
