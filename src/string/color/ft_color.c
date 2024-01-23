@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/18 15:03:14 by cbijman       #+#    #+#                 */
-/*   Updated: 2024/01/22 16:19:02 by cbijman       ########   odam.nl         */
+/*   Updated: 2024/01/23 12:24:40 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 static int	_is_color(int c)
 {
-	if (c > 0 && c < 256)
+	if (c >= 0 && c <= 255)
 		return (1);
 	return (0);
 }

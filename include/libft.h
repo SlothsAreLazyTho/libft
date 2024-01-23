@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2024/01/19 01:47:22 by root          ########   odam.nl         */
+/*   Updated: 2024/01/23 12:24:05 by cbijman       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ typedef union u_color
 	unsigned int		hexdecimal;
 	unsigned char		rgba[4];
 }	t_color;
-
 
 /// @brief Mimic version of the printf() function.
 /// @param s: The string to print
@@ -199,7 +198,6 @@ bool				ft_string_append(t_string *arg, char c);
 bool				ft_string_join(t_string *arg, char *str);
 char				*ft_string_cstr(t_string *arg);
 void				ft_string_free(t_string *arg);
-
 
 // New functions for colouring
 t_color				*ft_newcolor(int r, int g, int b, int a);
