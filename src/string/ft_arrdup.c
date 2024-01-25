@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/01/18 15:07:43 by cbijman       #+#    #+#                 */
-/*   Updated: 2024/01/18 15:15:47 by cbijman       ########   odam.nl         */
+/*   Updated: 2024/01/25 01:43:33 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,15 @@ char	**ft_arrdup(char **arr)
 
 	if (!arr || !*arr)
 		return (NULL);
-	index = 0;
-	while (arr[index])
-		index++;
-	array = malloc(index * sizeof(char *));
+	array = malloc(ft_arrlen(arr) * sizeof(char *));
 	if (!array)
 		return (NULL);
 	index = 0;
 	while (arr[index])
 	{
-		array[index] = arr[index];
+		array[index] = ft_strdup(arr[index]);
+		if (!array[index])
+			return (ft_arrfree(arr), NULL);
 		index++;
 	}
 	array[index] = NULL;

@@ -6,7 +6,7 @@
 #    By: cbijman <cbijman@student.codam.nl>           +#+                      #
 #                                                    +#+                       #
 #    Created: 2022/10/26 13:27:47 by cbijman       #+#    #+#                  #
-#    Updated: 2024/01/19 01:47:39 by root          ########   odam.nl          #
+#    Updated: 2024/01/25 01:26:43 by root          ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,6 +60,7 @@ FILES	=	ft_memset \
 			ft_calloc \
 			ft_strdup \
 			ft_arrdup \
+			ft_arrfree \
 			ft_substr \
 			ft_strjoin \
 			ft_strtrim \

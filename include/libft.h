@@ -6,7 +6,7 @@
 /*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/03 17:52:19 by cbijman       #+#    #+#                 */
-/*   Updated: 2024/01/23 12:24:05 by cbijman       ########   odam.nl         */
+/*   Updated: 2024/01/25 01:25:22 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ char				**ft_split(const char *s, char c);
 char				*ft_strchr(const char *s, int c);
 char				*ft_strdup(const char *s1);
 char				**ft_arrdup(char **arr);
+void				ft_arrfree(char **arr);
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
 char				*ft_strjoin(char const *s1, char const *s2);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
@@ -145,12 +146,12 @@ t_list				*ft_lstlast(t_list *lst);
 /// @brief Adds the node ’new’ at the beginning of the list.
 /// @param lst: The address of a pointer to the first link of a list.
 /// @param new: The address of a pointer to the node to be added to the list.
-void				ft_lstadd_front(t_list **lst, t_list *new);
+void				ft_lstadd_front(t_list **lst, t_list *n);
 
 /// @brief Adds the node ’new’ at the end of the list.
 /// @param lst:  The address of a pointer to the first link of a list.
 /// @param new:  The address of a pointer to the node to be added to the list.
-void				ft_lstadd_back(t_list **lst, t_list *new);
+void				ft_lstadd_back(t_list **lst, t_list *n);
 
 /// @brief Adds the node ’new’ at the end of the list.
 /// @param lst:  The address of a pointer to the first link of a list.

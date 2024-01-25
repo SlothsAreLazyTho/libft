@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_arrlen.c                                        :+:    :+:            */
+/*   ft_arrfree.c                                       :+:    :+:            */
 /*                                                     +:+                    */
-/*   By: cbijman <cbijman@student.codam.nl>           +#+                     */
+/*   By: root <root@student.codam.nl>                 +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2022/10/05 11:24:04 by cbijman       #+#    #+#                 */
-/*   Updated: 2024/01/25 01:26:02 by root          ########   odam.nl         */
+/*   Created: 2024/01/25 01:24:19 by root          #+#    #+#                 */
+/*   Updated: 2024/01/25 01:26:59 by root          ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
-size_t	ft_arrlen(char **arr)
+void	ft_arrfree(char **arr)
 {
 	size_t	i;
 
+	if (!arr || !*arr)
+		return ;
 	i = 0;
 	while (arr[i])
-		i++;
-	return (i);
+		free(arr[i]);
+	free(arr);
 }
